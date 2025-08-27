@@ -29,44 +29,29 @@ interface UserProfile {
   username: string;
 }
 
-const PACKAGES = [
-  {
-    id: 'starter',
-    name: 'Starter Boost (to boost getting broke',
-    connections: 100,
-    price: 9.99,
-    description: 'Perfect for beginners ready to shine',
-    icon: '🚀',
-    color:"from stone-500 to stone-600",
-
-    popular: false,
-    features: ['Instant delivery', 'Real connections', '24/7 support']
-  },
-  {
-    id: 'professional',
-    name: 'Professional Pro(in yapping)',
-    connections: 500,
-    price: 29.99,
-    description: 'For serious professionals who mean business',
-    icon: '💼',
-    color:"from blue-500 to purple-600",
-
-    popular: true,
-    features: ['Priority delivery', 'Premium connections', 'VIP support', 'Growth analytics']
-  },
-  {
-    id: 'enterprise',
-    name: 'Ultimate Legend',
-    connections: 1000,
-    price: 49.99,
-    description: 'Maximum impact(to your wallet) - become a LinkedIn legend',
-    icon: '👑',
-    color:"from blue-500 to purple-600",
-
-    popular: false,
-    features: ['Lightning fast', 'Elite connections', 'Personal manager', 'Advanced analytics', 'Custom targeting']
-  },
-];
+const PACKAGES = [ { id: 'starter', 
+                    name: 'Starter Boost',
+                    connections: 100, price: 9.99, 
+                    description: 'Perfect for beginners ready to shine',
+                    icon: '🚀', color: 'bg-blue-600', 
+                    popular: false, 
+                    features: ['Instant delivery', 'Real connections', '24/7 support'] },
+                  { id: 'professional', 
+                   name: 'Professional Pro',
+                   connections: 500, price: 29.99, 
+                   description: 'For serious professionals who mean business', 
+                   icon: '💼', color: 'bg-pink-600',
+                   popular: true, 
+                   features: ['Priority delivery', 'Premium connections', 'VIP support', 'Growth analytics'] }, 
+                  { id: 'enterprise', 
+                   name: 'Ultimate Legend', 
+                   connections: 1000, 
+                   price: 49.99,
+                   description: 'Maximum impact - become a LinkedIn legend', 
+                   icon: '👑', 
+                   color: 'bg-orange-500', 
+                   popular: false, 
+                   features: ['Lightning fast', 'Elite connections', 'Personal manager', 'Advanced analytics', 'Custom targeting'] }, ];
 
 const Index = () => {
   const { user, signOut, loading } = useAuth();
