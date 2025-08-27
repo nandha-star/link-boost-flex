@@ -35,28 +35,22 @@ serve(async (req) => {
     );
 
     if (session.payment_status === "paid") {
-      // Update purchase status to paid
-      const { error: updateError } = await supabaseService
-        .from("connection_purchases")
-        .update({ status: "paid" })
-        .eq("stripe_session_id", session_id);
+      // Securely verify and update payment status
+      const { data: purchaseData, error: verifyError } = await supabaseService.rpc("verify_and_update_payment", {
+        p_stripe_session_id: session_id,
+        p_new_status: "paid"
+      });
 
-      if (updateError) {
-        console.error("Error updating purchase status:", updateError);
-        throw updateError;
+      if (verifyError) {
+        console.error("Error verifying payment:", verifyError);
+        throw verifyError;
       }
 
-      // Get the purchase details to update user's connections
-      const { data: purchase, error: fetchError } = await supabaseService
-        .from("connection_purchases")
-        .select("user_id, connections_purchased")
-        .eq("stripe_session_id", session_id)
-        .single();
-
-      if (fetchError || !purchase) {
-        console.error("Error fetching purchase:", fetchError);
-        throw new Error("Purchase not found");
+      if (!purchaseData || purchaseData.length === 0) {
+        throw new Error("Payment verification failed - no purchase data returned");
       }
+
+      const purchase = purchaseData[0];
 
       // Update user's connection count
       const { error: profileError } = await supabaseService.rpc('increment_user_connections', {

@@ -79,26 +79,24 @@ serve(async (req) => {
 
     console.log("Stripe session created:", session.id);
 
-    // Store payment record in Supabase using service role key
+    // Store payment record in Supabase using secure database function
     const supabaseService = createClient(
       Deno.env.get("SUPABASE_URL") ?? "",
       Deno.env.get("SUPABASE_SERVICE_ROLE_KEY") ?? "",
       { auth: { persistSession: false } }
     );
 
-    const { error: insertError } = await supabaseService.from("connection_purchases").insert({
-      user_id: user.id,
-      stripe_session_id: session.id,
-      amount: amount * 100,
-      connections_purchased: connections,
-      status: "pending",
-      created_at: new Date().toISOString()
+    const { error: insertError } = await supabaseService.rpc("create_payment_record", {
+      p_user_id: user.id,
+      p_stripe_session_id: session.id,
+      p_amount: amount * 100,
+      p_connections_purchased: connections
     });
 
     if (insertError) {
-      console.error("Error inserting purchase record:", insertError);
+      console.error("Error creating payment record:", insertError);
     } else {
-      console.log("Purchase record created successfully");
+      console.log("Payment record created successfully");
     }
 
     return new Response(JSON.stringify({ url: session.url }), {
