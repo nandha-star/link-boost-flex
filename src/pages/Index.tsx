@@ -61,7 +61,7 @@ const PACKAGES = [
     price: 49.99,
     description: 'Maximum impact(to your wallet) - become a LinkedIn legend',
     icon: '👑',
-    color:"from browq-500 to brown-600"
+    color:"from brown-500 to brown-600"
 
     popular: false,
     features: ['Lightning fast', 'Elite connections', 'Personal manager', 'Advanced analytics', 'Custom targeting']
