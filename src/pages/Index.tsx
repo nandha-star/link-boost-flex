@@ -6,7 +6,22 @@ import { Badge } from '@/components/ui/badge';
 import { useAuth } from '@/components/auth/AuthProvider';
 import { supabase } from '@/integrations/supabase/client';
 import { useToast } from '@/hooks/use-toast';
-import { LogOut, TrendingUp, Users, Crown, Zap } from 'lucide-react';
+import { 
+  LogOut, 
+  TrendingUp, 
+  Users, 
+  Crown, 
+  Zap, 
+  Sparkles, 
+  ArrowRight, 
+  Star, 
+  Target,
+  ChevronRight,
+  Rocket,
+  Trophy,
+  Globe,
+  Shield
+} from 'lucide-react';
 
 interface UserProfile {
   current_connections: number;
@@ -17,30 +32,36 @@ interface UserProfile {
 const PACKAGES = [
   {
     id: 'starter',
-    name: 'Starter Flex',
+    name: 'Starter Boost',
     connections: 100,
     price: 9.99,
-    description: 'Perfect for beginners wanting to impress',
+    description: 'Perfect for beginners ready to shine',
     icon: '🚀',
+    color: 'from-blue-500 to-purple-600',
     popular: false,
+    features: ['Instant delivery', 'Real connections', '24/7 support']
   },
   {
     id: 'professional',
-    name: 'Professional Flex',
+    name: 'Professional Pro',
     connections: 500,
     price: 29.99,
     description: 'For serious professionals who mean business',
     icon: '💼',
+    color: 'from-purple-600 to-pink-600',
     popular: true,
+    features: ['Priority delivery', 'Premium connections', 'VIP support', 'Growth analytics']
   },
   {
     id: 'enterprise',
-    name: 'Ultimate Flex',
+    name: 'Ultimate Legend',
     connections: 1000,
     price: 49.99,
-    description: 'Maximum flex potential - become a LinkedIn legend',
+    description: 'Maximum impact - become a LinkedIn legend',
     icon: '👑',
+    color: 'from-pink-600 to-orange-500',
     popular: false,
+    features: ['Lightning fast', 'Elite connections', 'Personal manager', 'Advanced analytics', 'Custom targeting']
   },
 ];
 
@@ -87,8 +108,8 @@ const Index = () => {
 
       if (error) throw error;
       
-      // Open Stripe checkout in a new tab
-      window.open(data.url, '_blank');
+      // Redirect to Stripe checkout
+      window.location.href = data.url;
     } catch (error) {
       console.error('Error creating payment:', error);
       toast({
@@ -103,10 +124,17 @@ const Index = () => {
 
   if (loading) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-primary/20 to-secondary/20">
-        <div className="text-center">
-          <div className="animate-spin rounded-full h-32 w-32 border-b-2 border-primary mx-auto mb-4"></div>
-          <p className="text-lg text-muted-foreground">Loading your LinkedIn flex potential...</p>
+      <div className="min-h-screen flex items-center justify-center bg-gradient-hero">
+        <div className="text-center animate-fade-in">
+          <div className="bg-gradient-primary p-6 rounded-full w-20 h-20 mx-auto mb-6 animate-float">
+            <Users className="h-8 w-8 text-white mx-auto" />
+          </div>
+          <div className="relative">
+            <div className="absolute inset-0 bg-gradient-primary rounded-lg blur-lg opacity-30 animate-pulse"></div>
+            <p className="relative text-lg font-medium bg-white/90 backdrop-blur-md px-6 py-3 rounded-lg">
+              Loading your LinkedIn superpowers...
+            </p>
+          </div>
         </div>
       </div>
     );
@@ -114,86 +142,169 @@ const Index = () => {
 
   if (!user) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-primary/20 to-secondary/20">
-        <div className="container mx-auto px-4 py-16">
-          {/* Hero Section */}
-          <div className="text-center mb-16">
-            <h1 className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-primary to-primary-glow bg-clip-text text-transparent">
-              LinkedIn Connection Booster
-            </h1>
-            <p className="text-xl md:text-2xl text-muted-foreground mb-8 max-w-3xl mx-auto">
-              Boost your LinkedIn connections instantly and flex on your friends! 💪
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+      <div className="min-h-screen bg-gradient-hero">
+        {/* Navigation */}
+        <nav className="sticky top-0 z-50 bg-background/80 backdrop-blur-xl border-b border-border/50">
+          <div className="container mx-auto px-6 py-4">
+            <div className="flex items-center justify-between">
+              <div className="flex items-center space-x-3">
+                <div className="bg-gradient-primary p-2 rounded-xl shadow-glow">
+                  <Users className="h-6 w-6 text-white" />
+                </div>
+                <span className="text-xl font-bold bg-gradient-primary bg-clip-text text-transparent">
+                  LinkedIn Booster
+                </span>
+              </div>
+              
               <Link to="/auth">
-                <Button size="lg" className="bg-gradient-primary hover:opacity-90 text-lg px-8">
-                  Get Started Now
+                <Button className="bg-gradient-primary hover:shadow-glow transition-all duration-300">
+                  Get Started
+                  <ArrowRight className="ml-2 h-4 w-4" />
                 </Button>
               </Link>
             </div>
           </div>
+        </nav>
 
-          {/* Features */}
-          <div className="grid md:grid-cols-3 gap-8 mb-16">
-            <Card className="text-center">
-              <CardHeader>
-                <div className="mx-auto mb-4 text-4xl">⚡</div>
-                <CardTitle>Instant Boost</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-muted-foreground">
-                  Get your connections added instantly after payment. No waiting around!
-                </p>
-              </CardContent>
-            </Card>
-            
-            <Card className="text-center">
-              <CardHeader>
-                <div className="mx-auto mb-4 text-4xl">🎯</div>
-                <CardTitle>Targeted Growth</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-muted-foreground">
-                  Choose the perfect package size to match your professional goals.
-                </p>
-              </CardContent>
-            </Card>
-            
-            <Card className="text-center">
-              <CardHeader>
-                <div className="mx-auto mb-4 text-4xl">😎</div>
-                <CardTitle>Flex Factor</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-muted-foreground">
-                  Watch your friends' jaws drop when they see your massive network!
-                </p>
-              </CardContent>
-            </Card>
+        {/* Hero Section */}
+        <section className="relative overflow-hidden py-20 lg:py-32">
+          <div className="absolute inset-0 bg-gradient-hero opacity-60"></div>
+          <div className="container mx-auto px-6 relative">
+            <div className="text-center max-w-5xl mx-auto">
+              <div className="inline-flex items-center space-x-2 bg-white/10 backdrop-blur-md rounded-full px-6 py-2 mb-8 animate-float">
+                <Sparkles className="h-4 w-4 text-primary" />
+                <span className="text-sm font-medium">Transform Your LinkedIn Presence</span>
+                <Crown className="h-4 w-4 text-accent" />
+              </div>
+              
+              <h1 className="text-6xl lg:text-8xl font-extrabold mb-8 animate-fade-in">
+                <span className="bg-gradient-primary bg-clip-text text-transparent block">
+                  Supercharge
+                </span>
+                <span className="text-foreground">Your Network</span>
+              </h1>
+              
+              <p className="text-xl lg:text-2xl text-muted-foreground mb-12 max-w-3xl mx-auto animate-fade-in">
+                Get thousands of authentic LinkedIn connections instantly and become the 
+                <span className="bg-gradient-accent bg-clip-text text-transparent font-bold"> professional powerhouse </span>
+                you were meant to be! 
+              </p>
+
+              <div className="flex flex-col sm:flex-row items-center justify-center gap-6 animate-scale-in">
+                <Link to="/auth">
+                  <Button 
+                    size="lg" 
+                    className="bg-gradient-primary hover:shadow-glow transition-all duration-300 text-lg px-10 py-6 group"
+                  >
+                    Start Boosting Now
+                    <Rocket className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+                  </Button>
+                </Link>
+                <Button 
+                  variant="outline" 
+                  size="lg" 
+                  className="bg-white/10 backdrop-blur-md border-white/20 hover:bg-white/20 text-lg px-10 py-6"
+                  onClick={() => document.getElementById('features')?.scrollIntoView({ behavior: 'smooth' })}
+                >
+                  Learn More
+                </Button>
+              </div>
+            </div>
           </div>
+        </section>
 
-          {/* Pricing Preview */}
-          <div className="text-center">
-            <h2 className="text-3xl font-bold mb-8">Choose Your Flex Level</h2>
-            <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
-              {PACKAGES.map((pkg) => (
-                <Card key={pkg.id} className={pkg.popular ? "border-primary shadow-lg scale-105" : ""}>
-                  <CardHeader className="text-center">
-                    {pkg.popular && (
-                      <Badge className="mx-auto mb-2 bg-gradient-primary">Most Popular</Badge>
-                    )}
-                    <div className="text-3xl mb-2">{pkg.icon}</div>
-                    <CardTitle className="text-xl">{pkg.name}</CardTitle>
-                    <CardDescription>{pkg.description}</CardDescription>
-                  </CardHeader>
-                  <CardContent className="text-center">
-                    <div className="text-3xl font-bold mb-2">${pkg.price}</div>
-                    <div className="text-lg text-muted-foreground mb-4">
-                      +{pkg.connections} connections
+        {/* Features Grid */}
+        <section id="features" className="py-20 bg-background/80 backdrop-blur-xl">
+          <div className="container mx-auto px-6">
+            <div className="text-center mb-16">
+              <h2 className="text-4xl lg:text-5xl font-bold mb-4">
+                Why Choose <span className="bg-gradient-primary bg-clip-text text-transparent">Our Platform?</span>
+              </h2>
+              <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+                Experience the most advanced LinkedIn connection system on the planet
+              </p>
+            </div>
+
+            <div className="grid lg:grid-cols-4 md:grid-cols-2 gap-8">
+              {[
+                { icon: Zap, title: "Lightning Fast", description: "Instant delivery guaranteed", color: "text-yellow-500" },
+                { icon: Shield, title: "100% Secure", description: "Safe & authentic profiles", color: "text-green-500" },
+                { icon: Globe, title: "Global Reach", description: "Worldwide connections", color: "text-blue-500" },
+                { icon: Trophy, title: "Premium Quality", description: "Curated connections only", color: "text-purple-500" }
+              ].map((feature, index) => (
+                <Card key={index} className="border-0 bg-white/90 backdrop-blur-md shadow-card hover:shadow-glow transition-all duration-500 hover:-translate-y-3 group">
+                  <CardContent className="p-8 text-center">
+                    <div className={`bg-gradient-primary p-4 rounded-2xl w-fit mx-auto mb-6 group-hover:scale-110 transition-transform duration-300`}>
+                      <feature.icon className="h-8 w-8 text-white" />
                     </div>
+                    <h3 className="text-xl font-bold mb-3">{feature.title}</h3>
+                    <p className="text-muted-foreground">{feature.description}</p>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Pricing Section */}
+        <section className="py-20">
+          <div className="container mx-auto px-6">
+            <div className="text-center mb-16">
+              <h2 className="text-4xl lg:text-5xl font-bold mb-4">
+                Choose Your <span className="bg-gradient-accent bg-clip-text text-transparent">Power Level</span>
+              </h2>
+              <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+                Select the perfect package to dominate your LinkedIn network
+              </p>
+            </div>
+
+            <div className="grid lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+              {PACKAGES.map((pkg, index) => (
+                <Card 
+                  key={pkg.id} 
+                  className={`relative overflow-hidden border-0 shadow-card hover:shadow-glow transition-all duration-500 hover:-translate-y-4 group ${
+                    pkg.popular ? 'lg:scale-105 ring-2 ring-primary/20' : ''
+                  }`}
+                >
+                  {pkg.popular && (
+                    <div className="absolute top-4 right-4 bg-gradient-primary text-white px-4 py-1 rounded-full text-sm font-semibold shadow-lg">
+                      Most Popular
+                    </div>
+                  )}
+                  
+                  <div className={`h-2 bg-gradient-to-r ${pkg.color}`}></div>
+                  
+                  <CardHeader className="text-center pb-4">
+                    <div className="text-5xl mb-4">{pkg.icon}</div>
+                    <CardTitle className="text-2xl font-bold">{pkg.name}</CardTitle>
+                    <CardDescription className="text-base">{pkg.description}</CardDescription>
+                    <div className="space-y-2 pt-4">
+                      <div className="text-5xl font-extrabold bg-gradient-primary bg-clip-text text-transparent">
+                        ${pkg.price}
+                      </div>
+                      <div className="flex items-center justify-center space-x-2">
+                        <Target className="h-5 w-5 text-accent" />
+                        <span className="text-lg font-semibold">+{pkg.connections} connections</span>
+                      </div>
+                    </div>
+                  </CardHeader>
+                  
+                  <CardContent className="space-y-6">
+                    <ul className="space-y-3">
+                      {pkg.features.map((feature, featureIndex) => (
+                        <li key={featureIndex} className="flex items-center space-x-3">
+                          <ChevronRight className="h-4 w-4 text-accent flex-shrink-0" />
+                          <span className="text-sm">{feature}</span>
+                        </li>
+                      ))}
+                    </ul>
+                    
                     <Link to="/auth">
-                      <Button className="w-full" variant={pkg.popular ? "default" : "outline"}>
-                        Sign Up to Purchase
+                      <Button 
+                        className={`w-full bg-gradient-to-r ${pkg.color} hover:shadow-glow transition-all duration-300 group-hover:scale-105 font-semibold text-white border-0`}
+                      >
+                        Get {pkg.connections} Connections
+                        <Sparkles className="ml-2 h-4 w-4" />
                       </Button>
                     </Link>
                   </CardContent>
@@ -201,93 +312,171 @@ const Index = () => {
               ))}
             </div>
           </div>
-        </div>
+        </section>
+
+        {/* CTA Section */}
+        <section className="py-20 bg-gradient-primary relative overflow-hidden">
+          <div className="absolute inset-0 opacity-30" style={{
+            backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.1'%3E%3Ccircle cx='30' cy='30' r='2'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`
+          }}></div>
+          
+          <div className="container mx-auto px-6 relative">
+            <div className="text-center text-white">
+              <h2 className="text-4xl lg:text-5xl font-bold mb-6">
+                Ready to Become a LinkedIn Legend?
+              </h2>
+              <p className="text-xl mb-8 opacity-90 max-w-2xl mx-auto">
+                Join thousands of professionals who've already transformed their LinkedIn presence
+              </p>
+              <Link to="/auth">
+                <Button 
+                  size="lg" 
+                  variant="secondary"
+                  className="bg-white text-primary hover:bg-white/90 text-lg px-10 py-6 font-semibold group shadow-xl"
+                >
+                  Start Your Transformation
+                  <Crown className="ml-2 h-5 w-5 group-hover:rotate-12 transition-transform" />
+                </Button>
+              </Link>
+            </div>
+          </div>
+        </section>
       </div>
     );
   }
 
+  // Logged-in user view
   return (
-    <div className="min-h-screen bg-gradient-to-br from-primary/20 to-secondary/20">
-      <div className="container mx-auto px-4 py-8">
-        {/* Header */}
-        <div className="flex justify-between items-center mb-8">
-          <div>
-            <h1 className="text-3xl font-bold bg-gradient-to-r from-primary to-primary-glow bg-clip-text text-transparent">
-              Welcome back, {profile?.username || 'LinkedIn Legend'}!
-            </h1>
-            <p className="text-muted-foreground">Ready to boost your connections?</p>
+    <div className="min-h-screen bg-gradient-hero">
+      {/* Navigation */}
+      <nav className="sticky top-0 z-50 bg-background/80 backdrop-blur-xl border-b border-border/50">
+        <div className="container mx-auto px-6 py-4">
+          <div className="flex items-center justify-between">
+            <div className="flex items-center space-x-3">
+              <div className="bg-gradient-primary p-2 rounded-xl shadow-glow">
+                <Users className="h-6 w-6 text-white" />
+              </div>
+              <div>
+                <span className="text-xl font-bold bg-gradient-primary bg-clip-text text-transparent">
+                  Welcome back, {profile?.username || 'Legend'}!
+                </span>
+                <p className="text-sm text-muted-foreground">Ready to boost your network?</p>
+              </div>
+            </div>
+            
+            <Button onClick={signOut} variant="outline" size="sm" className="group">
+              <LogOut className="h-4 w-4 mr-2 group-hover:rotate-12 transition-transform" />
+              Sign Out
+            </Button>
           </div>
-          <Button onClick={signOut} variant="outline" size="sm">
-            <LogOut className="h-4 w-4 mr-2" />
-            Sign Out
-          </Button>
         </div>
+      </nav>
 
-        {/* Stats */}
-        <div className="grid md:grid-cols-3 gap-6 mb-8">
-          <Card>
+      <div className="container mx-auto px-6 py-8">
+        {/* Stats Dashboard */}
+        <div className="grid lg:grid-cols-4 md:grid-cols-2 gap-6 mb-12">
+          <Card className="border-0 bg-white/90 backdrop-blur-md shadow-card hover:shadow-glow transition-all duration-300 group">
             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
               <CardTitle className="text-sm font-medium">Current Connections</CardTitle>
-              <Users className="h-4 w-4 text-muted-foreground" />
+              <Users className="h-5 w-5 text-primary group-hover:scale-110 transition-transform" />
             </CardHeader>
             <CardContent>
-              <div className="text-2xl font-bold">{profile?.current_connections || 0}</div>
+              <div className="text-3xl font-bold text-primary">{profile?.current_connections || 0}</div>
               <p className="text-xs text-muted-foreground">Total LinkedIn connections</p>
             </CardContent>
           </Card>
           
-          <Card>
+          <Card className="border-0 bg-white/90 backdrop-blur-md shadow-card hover:shadow-glow transition-all duration-300 group">
             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-              <CardTitle className="text-sm font-medium">Purchased Connections</CardTitle>
-              <TrendingUp className="h-4 w-4 text-muted-foreground" />
+              <CardTitle className="text-sm font-medium">Purchased</CardTitle>
+              <TrendingUp className="h-5 w-5 text-accent group-hover:scale-110 transition-transform" />
             </CardHeader>
             <CardContent>
-              <div className="text-2xl font-bold">{profile?.total_purchased_connections || 0}</div>
-              <p className="text-xs text-muted-foreground">Connections bought through us</p>
+              <div className="text-3xl font-bold text-accent">{profile?.total_purchased_connections || 0}</div>
+              <p className="text-xs text-muted-foreground">Connections from us</p>
             </CardContent>
           </Card>
           
-          <Card>
+          <Card className="border-0 bg-white/90 backdrop-blur-md shadow-card hover:shadow-glow transition-all duration-300 group">
             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-              <CardTitle className="text-sm font-medium">Flex Level</CardTitle>
-              <Crown className="h-4 w-4 text-muted-foreground" />
+              <CardTitle className="text-sm font-medium">Status Level</CardTitle>
+              <Crown className="h-5 w-5 text-yellow-500 group-hover:scale-110 transition-transform" />
             </CardHeader>
             <CardContent>
-              <div className="text-2xl font-bold">
+              <div className="text-2xl font-bold bg-gradient-primary bg-clip-text text-transparent">
                 {(profile?.current_connections || 0) > 1000 ? 'Legend' : 
                  (profile?.current_connections || 0) > 500 ? 'Pro' : 
                  (profile?.current_connections || 0) > 100 ? 'Rising' : 'Starter'}
               </div>
-              <p className="text-xs text-muted-foreground">Your current status</p>
+              <p className="text-xs text-muted-foreground">Your current tier</p>
+            </CardContent>
+          </Card>
+
+          <Card className="border-0 bg-white/90 backdrop-blur-md shadow-card hover:shadow-glow transition-all duration-300 group">
+            <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+              <CardTitle className="text-sm font-medium">Growth Rate</CardTitle>
+              <Star className="h-5 w-5 text-orange-500 group-hover:scale-110 transition-transform" />
+            </CardHeader>
+            <CardContent>
+              <div className="text-3xl font-bold text-orange-500">
+                {Math.round(((profile?.total_purchased_connections || 0) / Math.max(profile?.current_connections || 1, 1)) * 100)}%
+              </div>
+              <p className="text-xs text-muted-foreground">Boost contribution</p>
             </CardContent>
           </Card>
         </div>
 
-        {/* Packages */}
-        <div className="text-center mb-8">
-          <h2 className="text-3xl font-bold mb-4">Boost Your Connections</h2>
-          <p className="text-muted-foreground">Choose the perfect package to level up your LinkedIn game</p>
+        {/* Packages Section */}
+        <div className="text-center mb-12">
+          <h2 className="text-4xl font-bold mb-4">
+            Level Up Your <span className="bg-gradient-primary bg-clip-text text-transparent">Network</span>
+          </h2>
+          <p className="text-xl text-muted-foreground">Choose your next power boost</p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-6">
+        <div className="grid lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
           {PACKAGES.map((pkg) => (
-            <Card key={pkg.id} className={pkg.popular ? "border-primary shadow-lg scale-105" : ""}>
-              <CardHeader className="text-center">
-                {pkg.popular && (
-                  <Badge className="mx-auto mb-2 bg-gradient-primary">Most Popular</Badge>
-                )}
-                <div className="text-4xl mb-2">{pkg.icon}</div>
-                <CardTitle className="text-xl">{pkg.name}</CardTitle>
-                <CardDescription>{pkg.description}</CardDescription>
-              </CardHeader>
-              <CardContent className="text-center">
-                <div className="text-4xl font-bold mb-2">${pkg.price}</div>
-                <div className="text-lg text-muted-foreground mb-4">
-                  +{pkg.connections} connections
+            <Card 
+              key={pkg.id} 
+              className={`relative overflow-hidden border-0 shadow-card hover:shadow-glow transition-all duration-500 hover:-translate-y-4 group ${
+                pkg.popular ? 'lg:scale-105 ring-2 ring-primary/20' : ''
+              }`}
+            >
+              {pkg.popular && (
+                <div className="absolute top-4 right-4 bg-gradient-primary text-white px-4 py-1 rounded-full text-sm font-semibold shadow-lg">
+                  Most Popular
                 </div>
+              )}
+              
+              <div className={`h-2 bg-gradient-to-r ${pkg.color}`}></div>
+              
+              <CardHeader className="text-center pb-4">
+                <div className="text-4xl mb-3">{pkg.icon}</div>
+                <CardTitle className="text-xl font-bold">{pkg.name}</CardTitle>
+                <CardDescription>{pkg.description}</CardDescription>
+                <div className="space-y-2 pt-3">
+                  <div className="text-4xl font-extrabold bg-gradient-primary bg-clip-text text-transparent">
+                    ${pkg.price}
+                  </div>
+                  <div className="flex items-center justify-center space-x-2">
+                    <Target className="h-4 w-4 text-accent" />
+                    <span className="font-semibold">+{pkg.connections} connections</span>
+                  </div>
+                </div>
+              </CardHeader>
+              
+              <CardContent className="space-y-6">
+                <ul className="space-y-2">
+                  {pkg.features.map((feature, featureIndex) => (
+                    <li key={featureIndex} className="flex items-center space-x-2 text-sm">
+                      <ChevronRight className="h-3 w-3 text-accent flex-shrink-0" />
+                      <span>{feature}</span>
+                    </li>
+                  ))}
+                </ul>
+                
                 <Button 
-                  className="w-full" 
-                  variant={pkg.popular ? "default" : "outline"}
+                  className={`w-full bg-gradient-to-r ${pkg.color} hover:shadow-glow transition-all duration-300 group-hover:scale-105 font-semibold text-white border-0`}
                   onClick={() => handlePurchase(pkg)}
                   disabled={purchasing === pkg.id}
                 >
@@ -297,7 +486,10 @@ const Index = () => {
                       Processing...
                     </>
                   ) : (
-                    `Boost ${pkg.connections} Connections`
+                    <>
+                      Boost +{pkg.connections}
+                      <Sparkles className="ml-2 h-4 w-4" />
+                    </>
                   )}
                 </Button>
               </CardContent>
