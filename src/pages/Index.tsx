@@ -192,12 +192,12 @@ const Index = () => {
                 <span className="bg-gradient-primary bg-clip-text text-transparent block">
                   Flex
                 </span>
-                <span className="text-foreground">your firends lmaoo</span>
+                <span className="text-foreground">your friends lmaoo</span>
               </h1>
               
               <p className="text-xl lg:text-2xl text-muted-foreground mb-12 max-w-3xl mx-auto animate-fade-in">
-                Wanna to get 500+ connections in your wbesite to flex your firends??? 
-                 Professional powerhouse you were meant to be(Daummmmmmm)! 
+                Wanna to get 500+ connections in your Linkedin to flex your friends??? 
+               
               </p>
 
               <div className="flex flex-col sm:flex-row items-center justify-center gap-6 animate-scale-in">
@@ -231,7 +231,7 @@ const Index = () => {
                 Why Choose <span className="bg-gradient-primary bg-clip-text text-transparent">Our Platform?</span>
               </h2>
               <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-               If you have brain, you shoudn't platform like this✨anywas this website is a scam lel
+               If you have brain, you shoudn't use platform like this✨ Anyway this website is a scam lel
               </p>
             </div>
 
