@@ -24,7 +24,7 @@ import {
 } from 'lucide-react';
 
 interface UserProfile {
-  current_connections: number;
+  current_connections: "IDK LOL;
   total_purchased_connections: number;
   username: string;
 }
