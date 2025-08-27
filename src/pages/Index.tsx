@@ -221,7 +221,7 @@ const Index = () => {
                 Why Choose <span className="bg-gradient-primary bg-clip-text text-transparent">Our Platform?</span>
               </h2>
               <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-                Experience the most advanced LinkedIn connection system on the planet
+               If you have brain, you shoudn't platform like this✨anywas this website is a scam lel
               </p>
             </div>
 
