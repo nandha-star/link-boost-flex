@@ -1,8 +1,7 @@
 # Hello Liftoff this is Nandhakishore!
 
-I am Naandhakishore r from SRM Kattankulathur and I am a fresher
-My branch is M.tech Integrated Cse with specializsation in Data science
-This is the website I tried to make. Hope it's eligbile :)
+I am Nandhakishore r from SRM Kattankulathur and I am a fresher.
+My branch is M.tech Integrated Cse with specializsation in Data science.This is the website I tried to make. Hope it's eligbile :)
 
 
 ## Setup
