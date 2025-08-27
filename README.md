@@ -1,6 +1,6 @@
 # Hello Liftoff this is Nandhakishore!
 
-This is the website I tried to make. Hope it's eligbile :)
+I am Naandhakishore r from SRM Kattankulathur and I am a fresher.  This is the website I tried to make. Hope it's eligbile :)
 
 
 ## Setup
