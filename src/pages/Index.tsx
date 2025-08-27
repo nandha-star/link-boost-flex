@@ -37,7 +37,7 @@ const PACKAGES = [
     price: 9.99,
     description: 'Perfect for beginners ready to shine',
     icon: '🚀',
-    color:"from brown-500 to brown-600"
+    color:"from stone-500 to stone-600"
 
     popular: false,
     features: ['Instant delivery', 'Real connections', '24/7 support']
@@ -49,7 +49,7 @@ const PACKAGES = [
     price: 29.99,
     description: 'For serious professionals who mean business',
     icon: '💼',
-    color:"from brown-500 to brown-600"
+    color:"from stone-500 to stone-600"
 
     popular: true,
     features: ['Priority delivery', 'Premium connections', 'VIP support', 'Growth analytics']
@@ -61,7 +61,7 @@ const PACKAGES = [
     price: 49.99,
     description: 'Maximum impact(to your wallet) - become a LinkedIn legend',
     icon: '👑',
-    color:"from brown-500 to brown-600"
+    color:"from stone-500 to stone-600"
 
     popular: false,
     features: ['Lightning fast', 'Elite connections', 'Personal manager', 'Advanced analytics', 'Custom targeting']
