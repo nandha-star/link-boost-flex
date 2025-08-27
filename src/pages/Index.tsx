@@ -29,33 +29,7 @@ interface UserProfile {
   username: string;
 }
 
-const PACKAGES = [ { id: 'starter', 
-                    name: 'Starter Boost',
-                    connections: 100, price: 9.99, 
-                    description: 'Perfect for beginners ready to shine',
-                    icon: '🚀', color: 'bg-blue-200',
-, 
-                    popular: false, 
-                    features: ['Instant delivery', 'Real connections', '24/7 support'] },
-                  { id: 'professional', 
-                   name: 'Professional Pro',
-                   connections: 500, price: 29.99, 
-                   description: 'For serious professionals who mean business', 
-                   icon: '💼', color: 'bg-brown-200',
-,
-                   popular: true, 
-                   features: ['Priority delivery', 'Premium connections', 'VIP support', 'Growth analytics'] }, 
-                  { id: 'enterprise', 
-                   name: 'Ultimate Legend', 
-                   connections: 1000, 
-                   price: 49.99,
-                   description: 'Maximum impact - become a LinkedIn legend', 
-                   icon: '👑', 
-                   color: 'bg-brown-200',
- 
-                   popular: false, 
-                   features: ['Lightning fast', 'Elite connections', 'Personal manager', 'Advanced analytics', 'Custom targeting'] }, ];
-
+{ id: 'starter', name: 'Starter Boost', connections: 100, price: 9.99, description: 'Perfect for beginners ready to shine', icon: '🚀', color: 'bg-blue-600', popular: false, features: ['Instant delivery', 'Real connections', '24/7 support'] }, { id: 'professional', name: 'Professional Pro', connections: 500, price: 29.99, description: 'For serious professionals who mean business', icon: '💼', color: 'bg-pink-600', popular: true, features: ['Priority delivery', 'Premium connections', 'VIP support', 'Growth analytics'] }, { id: 'enterprise', name: 'Ultimate Legend', connections: 1000, price: 49.99, description: 'Maximum impact - become a LinkedIn legend', icon: '👑', color: 'bg-orange-500', popular: false, features: ['Lightning fast', 'Elite connections', 'Personal manager', 'Advanced analytics', 'Custom targeting'] }, ];
 const Index = () => {
   const { user, signOut, loading } = useAuth();
   const [profile, setProfile] = useState<UserProfile | null>(null);
