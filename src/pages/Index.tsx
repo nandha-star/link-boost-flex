@@ -185,9 +185,9 @@ const Index = () => {
               </h1>
               
               <p className="text-xl lg:text-2xl text-muted-foreground mb-12 max-w-3xl mx-auto animate-fade-in">
-                Get thousands of authentic LinkedIn connections instantly and become the 
+                Wanna to get 500+ connections in your wbesite to flex your firends??? 
                 <span className="bg-gradient-accent bg-clip-text text-transparent font-bold"> professional powerhouse </span>
-                you were meant to be! 
+                you were meant to be(Daummmmmmm)! 
               </p>
 
               <div className="flex flex-col sm:flex-row items-center justify-center gap-6 animate-scale-in">
