@@ -37,7 +37,7 @@ const PACKAGES = [
     price: 9.99,
     description: 'Perfect for beginners ready to shine',
     icon: '🚀',
-    color: 'bg-amber-600',
+    color:'bg-L#C4A484]',
     popular: false,
     features: ['Instant delivery', 'Real connections', '24/7 support'],
   },
