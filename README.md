@@ -1,6 +1,6 @@
 # Hello Liftoff this is Nandhakishore!
 
-This is the website I treid to make using Lovable!Hope it's eligbile :)
+This is the website I tried to make. Hope it's eligbile :)
 
 
 ## Setup
