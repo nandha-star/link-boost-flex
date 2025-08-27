@@ -179,9 +179,9 @@ const Index = () => {
               
               <h1 className="text-6xl lg:text-8xl font-extrabold mb-8 animate-fade-in">
                 <span className="bg-gradient-primary bg-clip-text text-transparent block">
-                  Supercharge
+                  Flex
                 </span>
-                <span className="text-foreground">Your Network</span>
+                <span className="text-foreground">your firends lmaoo</span>
               </h1>
               
               <p className="text-xl lg:text-2xl text-muted-foreground mb-12 max-w-3xl mx-auto animate-fade-in">
